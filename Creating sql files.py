@@ -5,8 +5,7 @@ def create_fun():
     mydb = msc.connect(
         host = 'localhost',
         user = 'root',
-        password = '',
-        database = 'myfirstdatabase'
+        password = ''
         )
 
     mycursor = mydb.cursor()
