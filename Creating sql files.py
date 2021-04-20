@@ -11,13 +11,19 @@ def create_fun():
     mycursor = mydb.cursor()
     mycursor.execute('SHOW DATABASES')
 
-    for db in mycursor:
-        if db == dataBase_ent.get():
+    
+    try:
+        for db in mycursor:
+        
+            if list(db) == list(dataBase_ent.get()):
+                messagebox.showinfo('Result','This file already exists')
+                return  ''
+    except:
             messagebox.showinfo('Result','This file already exists')
-
-        else:
-            mycursor.execute(f'CREATE DATABASE {dataBase_ent.get()}')
-            messagebox.showinfo('Result','Your file has been successfully created')
+        
+    mycursor.execute(f'CREATE DATABASE {dataBase_ent.get()}')
+    messagebox.showinfo('Result','Your file has been successfully created')
+            
 
 
 window = Tk()
